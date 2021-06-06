@@ -4,7 +4,6 @@ import keras.backend as K
 import tensorflow as tf
 
 
-
 def diff_model(model, weight, bias):
     if model == 'Add':
         weight = np.array(weight).sum(axis=0)
@@ -751,7 +750,6 @@ class DBB(object):
                 x4 = BatchNormalization(name=name + '_bn_4')(x4)
 
             x = Add(name=name + '_add')([x1, x2, x3, x4])
-            # x = Add(name=name + '_add')([x1, x2, x4])
         else:
             x = Conv2D(filters, kernel_size, dilation_rate=dilation_rate,
                        padding='same', name=name)(input)
